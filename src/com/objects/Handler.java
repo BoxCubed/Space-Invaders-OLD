@@ -37,7 +37,6 @@ public class Handler {
 	}
 	public synchronized void removeObject(gameObject object){
 		this.object.remove(object);
-		object.halt();
 	}
 	public LinkedList<gameObject> getAllObjectsbyID(objectID id) throws NullPointerException{
 		LinkedList<gameObject> list=new LinkedList<gameObject>();

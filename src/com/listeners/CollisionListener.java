@@ -41,14 +41,7 @@ public class CollisionListener {
 			if(tempObject.getID()==ob2){
 				if(ob1.getBounds().intersects(tempObject.getBounds())){
 				e.collisionEvent();
-				    try {
-				        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("C:/MusicPlayer/fml.mp3").getAbsoluteFile());
-				        Clip clip = AudioSystem.getClip();
-				        clip.open(audioInputStream);
-				        clip.start();
-				    } catch(Exception ex) {
-				        System.out.println("Error with playing sound.");
-				    }
+				   
 				}
 			}
 			if(tempObject.getID()==ob1.getID()){
