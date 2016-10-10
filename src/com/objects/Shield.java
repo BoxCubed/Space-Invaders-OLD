@@ -42,7 +42,7 @@ int counter=0;
 		System.out.println(counter);
 		if(counter==10){
 			Display.handler.removeObject(this);
-			Display.handler.runAllCodetoID(Display.handler.new execute(objectID.Crack){
+			Display.handler.runAllCodetoID(Display.handler.new execute(objectID.Crack){  //i am hee
 				@Override
 				void executecode(){
 					Display.handler.removeObject(tempObject);

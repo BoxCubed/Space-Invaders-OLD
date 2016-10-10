@@ -30,7 +30,7 @@ public class Crack extends gameObject{
 		
 		Graphics2D g2d = (Graphics2D) g;
 		g.setColor(Color.magenta);
-		g2d.drawRect((int)x, (int)y, 10, 20);
+		g2d.drawRect((int)x, (int)y, 10, 20);  //plz update
 		
 		
 		
