@@ -61,6 +61,7 @@ Handler h=Display.handler;
 				// TODO Auto-generated method stub
 				if(tempObject.getBounds().intersects(getBounds())){
 					h.addObject(new Crack(getX(),getY()-2,objectID.Crack));
+					h.removeObject(tempObject);
 					
 					
 					
