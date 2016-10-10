@@ -4,7 +4,7 @@ import java.io.File;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-public class moresound {
+public class sound{
 public static void main(String[]args){
 	File file_LOCATION = new File ("src/laser.wav");
 	playSOund(file_LOCATION);
