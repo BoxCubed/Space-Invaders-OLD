@@ -91,6 +91,15 @@ int counter=0;
 	@Override
 	public void halt() {
 		// TODO Auto-generated method stub
+		Display.handler.runAllCodetoID(Display.handler.new execute(objectID.Crack){
+			
+			@Override
+			void executecode() {
+				// TODO Auto-generated method stub
+				if(getBounds().intersects(tempObject.getBounds())) tempObject.halt();
+			}
+			
+		});
 		
 	}
 
