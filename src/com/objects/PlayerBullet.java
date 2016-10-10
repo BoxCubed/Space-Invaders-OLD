@@ -15,7 +15,7 @@ import com.framework.objectID;
 public class PlayerBullet extends gameObject {
 	float width=4;
 	float height=10;
-	
+	boolean hit=false;
 	public PlayerBullet(float x, float y, objectID id) {
 		super(x, y, id);
 	}
@@ -23,6 +23,7 @@ public class PlayerBullet extends gameObject {
 	public void render(Graphics g) {
 			g.setColor(Color.WHITE);
 			g.fillRect((int)x,(int)y,(int)width,(int)height);
+			
 			
 			Graphics2D g2d = (Graphics2D)g;
 			//g.setColor(Color.MAGENTA);
@@ -66,25 +67,40 @@ public class PlayerBullet extends gameObject {
 	
 	private void collision(LinkedList<gameObject> object){
 		for(int i=0;i<Display.handler.object.size();i++){
+			
 			gameObject tempObject = Display.handler.object.get(i);
+			if(tempObject.getID()==objectID.PlayerBullet){
+				if(getY()<-5){Display.handler.removeObject(this);}
+			}
 			if(tempObject.getID()==objectID.Alien){
 				if(getBounds().intersects(tempObject.getBounds())){
 					Display.handler.removeObject(tempObject);;
 					Display.handler.removeObject(this);
 				}
 			}
-			if(tempObject.getID()==objectID.PlayerBullet){
-				if(getY()<-5){Display.handler.removeObject(this);}
-			}
 			if(tempObject.getID()==objectID.Shield){
 				if(getBounds().intersects(tempObject.getBounds())){
 				Shield s=(Shield) tempObject;
-				s.hit();
+				Display.handler.addObject(new Crack(x,y,objectID.Crack));
 				Display.handler.removeObject(this);
+				s.hit();
+				//hit=true;
+				
 				}
-			}
+			}}
+			
+			/*if(tempObject.getID()==objectID.Crack)
+				if(getBounds().intersects(tempObject.getBounds())){
+					
+					Display.handler.addObject(new Crack((int)x,(int)tempObject.getY()-2,objectID.Crack));
+					}
+			
+				}*/
+				
+			
+			
 		}
-	}
+	
 
 	public Rectangle getBounds() {
 		return new Rectangle((int)x,(int)y,(int)width,(int)height/3);

@@ -41,7 +41,8 @@ int counter=0;
 	}
 	public void hit(){
 		counter++;
-		if(counter==5){
+
+		if(counter==20){
 			Display.handler.removeObject(this);
 		}
 	}
