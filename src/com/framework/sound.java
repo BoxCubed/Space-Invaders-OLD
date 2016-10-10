@@ -1,22 +1,24 @@
 package com.framework;
-
 import java.io.File;
 
-import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-public class sound {
-	public void playSound(String sound) {
-		  AudioInputStream audioInputStream = null;
-	    try {if(sound.equals("shoot"))
-	        audioInputStream = AudioSystem.getAudioInputStream(new File("C:/Desktop/shooting.mp3").getAbsoluteFile());
-	        Clip popplayer = AudioSystem.getClip();
-	        popplayer.open(audioInputStream);
-	        popplayer.start();
-	    } catch(Exception ex) {
-	        System.out.println("Error with playing sound.");
-	        ex.printStackTrace();
-	    }
+public class moresound {
+public static void main(String[]args){
+	File file_LOCATION = new File ("src/laser.wav");
+	playSOund(file_LOCATION);
+}
+static void playSOund(File Sound){
+	try{
+		Clip audio_player = AudioSystem.getClip();
+		audio_player.open(AudioSystem.getAudioInputStream(Sound));
+		audio_player.start();
+		
+		Thread.sleep(audio_player.getMicrosecondLength()/1000);
+		audio_player.stop();
+		audio_player.close();
+	}catch(Exception e){
 	}
+}
 }
