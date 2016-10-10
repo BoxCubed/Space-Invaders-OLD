@@ -4,7 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.LinkedList;
+import java.util.Random;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -18,19 +22,23 @@ public class Alien extends gameObject{
 	int height=20;
 	
 	private int type;
-	
+
 	Timer t;
-	
 	PathAlien p;
+
+	AlienBulletTimer abt;
 	
 	Texture tex = Display.getInstance();
 	
 	public Alien(float x, float y, objectID id,int type) {
 		super(x, y, id);
-		t=new Timer();
 		p = new PathAlien();
+		abt = new AlienBulletTimer();
+		t = new Timer();
 		this.type=type;
 		path();
+		shoot();
+		
 	}
 	
 	public void render(Graphics g) {
@@ -49,7 +57,6 @@ public class Alien extends gameObject{
 		x+=velX;
 		y+=velY;
 		
-	
 	}
 
 	public float getX() {
@@ -93,18 +100,21 @@ public class Alien extends gameObject{
 	}
 	
 	public void path(){
-		p.moveRight(this, t, 100,7000);
-		p.moveDown(this, t, 7100,300);
-		p.moveLeft(this, t, 7400, 7000);
-		p.moveDown(this, t, 14400, 300);
-		p.moveRight(this, t, 14700,7000);
-		p.moveDown(this, t, 21700,300);
-		p.moveLeft(this, t, 22000, 7000);
-		p.moveDown(this, t, 29000, 300);
-		p.moveRight(this, t, 29300,7000);
-		p.moveDown(this, t, 36300,300);
-		p.moveLeft(this, t, 36600, 7000);
-		p.moveDown(this, t, 43000, 300);
+		p.moveRight(this, 100,7000);
+		p.moveDown(this, 7100,300);
+		p.moveLeft(this, 7400, 7000);
+		p.moveDown(this, 14400, 300);
+		p.moveRight(this, 14700,7000);
+		p.moveDown(this, 21700,300);
+		p.moveLeft(this, 22000, 7000);
+		p.moveDown(this, 29000, 300);
+		p.moveRight(this, 29300,7000);
+		p.moveDown(this, 36300,300);
+		p.moveLeft(this, 36600, 7000);
+		p.moveDown(this, 43000, 300);
 	}
-		
+	public void shoot(){
+	abt.start();
+	abt.countReset();
+	}
 }

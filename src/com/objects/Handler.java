@@ -10,6 +10,7 @@ import com.listeners.CollisionListener;
 import com.objects.Handler.execute;
 
 public class Handler {
+	static int alienBulletCount=0;
 	public LinkedList<gameObject> object = new LinkedList<gameObject>();
 	public LinkedList<CollisionListener> clistener=new LinkedList<CollisionListener>();
 	private gameObject tempObject;
@@ -33,7 +34,8 @@ public class Handler {
 		}
 	}
 	public synchronized void addObject(gameObject object){
-		this.object.add(object);
+		if(object.getID()!=objectID.AlienBullet){this.object.add(object);}
+		else{if(alienBulletCount<1){this.object.add(object);}alienBulletCount++;}
 	}
 	public synchronized void removeObject(gameObject object){
 		this.object.remove(object);

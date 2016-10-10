@@ -5,8 +5,10 @@ import java.util.TimerTask;
 
 import com.framework.gameObject;
 
+
 public class PathAlien {
-	public void moveRight(gameObject object, Timer t,int delay,int delay2){
+	Timer t = new Timer();
+	public void moveRight(gameObject object,int delay,int delay2){
 		t.schedule(new TimerTask() {
 			@Override
 			public void run() {
@@ -22,7 +24,7 @@ public class PathAlien {
 	}
 	
 	
-	public void moveLeft(gameObject object,Timer t,int delay,int delay2){
+	public void moveLeft(gameObject object,int delay,int delay2){
 		t.schedule(new TimerTask() {
 			@Override
 			public void run() {
@@ -36,7 +38,7 @@ public class PathAlien {
 			}
 		}, delay);		
 	}
-	public void moveDown(gameObject object,Timer t,int delay,int delay2){
+	public void moveDown(gameObject object,int delay,int delay2){
 		t.schedule(new TimerTask() {
 			@Override
 			public void run() {

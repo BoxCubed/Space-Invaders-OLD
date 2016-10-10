@@ -29,17 +29,23 @@ public class Player extends gameObject{
 		//g.fillRect((int)x, (int)y, (int)width, (int)height);
 		//g.fillRect((int)x+21, (int)y-4, 8, 8);
 		
-		g.drawImage(tex.player[0],(int)x, (int)y, null);
+		if(this.type==0){
+			g.drawImage(tex.player[0],(int)x, (int)y, null);
+		}
+		
+		if(this.type==1){
+			g.drawImage(tex.player[1],(int)x, (int)y, null);
+		}
 		
 		Graphics2D g2d = (Graphics2D)g;
 		
-		//g.setColor(Color.MAGENTA);
-		//g2d.draw(getBounds());
+		g.setColor(Color.MAGENTA);
+		g2d.draw(getBounds());
 		//g2d.draw(getBoundsRight());
 		//g2d.draw(getBoundsLeft());
 	}
 	public Rectangle getBounds() {
-		return new Rectangle();
+		return new Rectangle((int)x+4,(int)y+5,(int)width,(int)height);
 	}
 	public Rectangle getBoundsRight() {
 		return new Rectangle((int) ((int)x+width-5),(int)y,(int)5,(int)height);
@@ -63,6 +69,11 @@ public class Player extends gameObject{
 				}
 				if(getBoundsLeft().intersects(tempObject.getBounds())){
 					x = tempObject.getX()+width;
+				}
+			}
+			if(tempObject.getID()==objectID.AlienBullet){
+				if(getBounds().intersects(tempObject.getBounds())){
+					this.type=1;
 				}
 			}
 		}

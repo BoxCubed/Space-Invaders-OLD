@@ -6,6 +6,7 @@ public enum objectID {
 	Alien(),
 	PlayerBullet(),
 	Block(),
-	Shield();       //Stores object ids so you can call them out (classes)
+	Shield(),
+	AlienBullet();       //Stores object ids so you can call them out (classes)
 
 }

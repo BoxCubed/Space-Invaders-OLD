@@ -11,6 +11,7 @@ public abstract class gameObject {
 	protected float velX=0, velY=0;
 	protected float width;
 	protected float height;
+	public int type;
 	
 	public gameObject(float x, float y, objectID id){
 		this.x = x;

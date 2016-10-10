@@ -78,8 +78,8 @@ public class PlayerBullet extends gameObject {
 			}
 			if(tempObject.getID()==objectID.Shield){
 				if(getBounds().intersects(tempObject.getBounds())){
-				Shield s=(Shield) tempObject;
-				s.hit();
+				Shield shield=(Shield) tempObject;
+				shield.hit();
 				Display.handler.removeObject(this);
 				}
 			}
