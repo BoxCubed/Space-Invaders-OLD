@@ -42,7 +42,7 @@ public class CollisionListener {
 				if(ob1.getBounds().intersects(tempObject.getBounds())){
 				e.collisionEvent();
 				    try {
-				        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("D:/MusicPlayer/fml.mp3").getAbsoluteFile());
+				        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("C:/MusicPlayer/fml.mp3").getAbsoluteFile());
 				        Clip clip = AudioSystem.getClip();
 				        clip.open(audioInputStream);
 				        clip.start();
