@@ -6,11 +6,12 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 
+import com.display.Display;
 import com.framework.gameObject;
 import com.framework.objectID;
 
 public class Crack extends gameObject{
-
+Handler h=Display.handler;
 	public Crack(float x, float y, objectID id) {
 		super(x-5, y-15, id);
 		// TODO Auto-generated constructor stub
@@ -19,7 +20,7 @@ public class Crack extends gameObject{
 	@Override
 	public void tick(LinkedList<gameObject> object) {
 		// TODO Auto-generated method stub
-		
+		collision();
 	}
 
 	@Override
@@ -51,6 +52,23 @@ public class Crack extends gameObject{
 	@Override
 	public void halt() {
 		// TODO Auto-generated method stub
+		
+	}
+	public void collision(){
+		h.runAllCodetoID(h.new execute(objectID.PlayerBullet){
+			@Override
+			void executecode() {
+				// TODO Auto-generated method stub
+				if(tempObject.getBounds().intersects(getBounds())){
+					h.addObject(new Crack(getX(),getY()-2,objectID.Crack));
+					
+					
+					
+				}
+			}
+			
+			
+		});
 		
 	}
 
