@@ -40,7 +40,8 @@ int counter=0;
 	public void hit(){
 		counter++;
 		System.out.println(counter);
-		if(counter==10){
+		if(counter==5){
+			System.out.println(counter);
 			Display.handler.removeObject(this);
 			Display.handler.runAllCodetoID(Display.handler.new execute(objectID.Crack){  //i am hee
 				@Override
