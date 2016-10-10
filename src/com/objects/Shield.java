@@ -40,10 +40,8 @@ int counter=0;
 		
 	}
 	public void hit(){
-		System.out.println("Hit!");
 		counter++;
 		if(counter==5){
-			
 			Display.handler.removeObject(this);
 		}
 	}
