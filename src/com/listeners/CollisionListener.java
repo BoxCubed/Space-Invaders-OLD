@@ -1,6 +1,11 @@
 package com.listeners;
 
+import java.io.File;
 import java.util.LinkedList;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 import com.display.Display;
 import com.framework.gameObject;
@@ -36,7 +41,14 @@ public class CollisionListener {
 			if(tempObject.getID()==ob2){
 				if(ob1.getBounds().intersects(tempObject.getBounds())){
 				e.collisionEvent();
-					
+				    try {
+				        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("D:/MusicPlayer/fml.mp3").getAbsoluteFile());
+				        Clip clip = AudioSystem.getClip();
+				        clip.open(audioInputStream);
+				        clip.start();
+				    } catch(Exception ex) {
+				        System.out.println("Error with playing sound.");
+				    }
 				}
 			}
 			if(tempObject.getID()==ob1.getID()){
