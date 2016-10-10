@@ -85,6 +85,11 @@ int counter=0;
 	public objectID getID() {
 		return id;
 	}
+	public boolean isHit(){
+		if (counter==0) return false;
+		else return true;
+		
+	}
 
 
 }
