@@ -15,6 +15,7 @@ public class Shield extends gameObject{
 int width = 80;
 int height = 45;
 Texture tex = Display.getInstance();
+int counter=0;
 	
 	public Shield(float x, float y, objectID id) {
 		super(x, y, id);
@@ -37,6 +38,14 @@ Texture tex = Display.getInstance();
 	
 	private void collision(LinkedList<gameObject> object){
 		
+	}
+	public void hit(){
+		System.out.println("Hit!");
+		counter++;
+		if(counter==5){
+			
+			Display.handler.removeObject(this);
+		}
 	}
 
 	public float getX() {
