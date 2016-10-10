@@ -70,6 +70,11 @@ private void collision(LinkedList<gameObject> object){
 public Rectangle getBounds() {
 	return new Rectangle((int)x,(int)y,(int)width,(int)height);
 }
+@Override
+public void halt() {
+
+	
+}
 
 
 

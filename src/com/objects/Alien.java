@@ -1,3 +1,4 @@
+
 package com.objects;
 
 import java.awt.Color;
@@ -17,28 +18,26 @@ import com.framework.Texture;
 import com.framework.gameObject;
 import com.framework.objectID;
 
+
+
 public class Alien extends gameObject{
 	int width=20;
 	int height=20;
 	
 	private int type;
-
+	
 	Timer t;
+	
 	PathAlien p;
-
-	AlienBulletTimer abt;
 	
 	Texture tex = Display.getInstance();
 	
 	public Alien(float x, float y, objectID id,int type) {
 		super(x, y, id);
+		t=new Timer();
 		p = new PathAlien();
-		abt = new AlienBulletTimer();
-		t = new Timer();
 		this.type=type;
 		path();
-		shoot();
-		
 	}
 	
 	public void render(Graphics g) {
@@ -49,7 +48,7 @@ public class Alien extends gameObject{
 			g.drawImage(tex.alien[1], (int)x, (int)y, null);
 		}
 		
-		Graphics2D g2d = (Graphics2D)g;
+		//Graphics2D g2d = (Graphics2D)g;
 
 	}
 
@@ -57,6 +56,7 @@ public class Alien extends gameObject{
 		x+=velX;
 		y+=velY;
 		
+	
 	}
 
 	public float getX() {
@@ -113,8 +113,12 @@ public class Alien extends gameObject{
 		p.moveLeft(this, 36600, 7000);
 		p.moveDown(this, 43000, 300);
 	}
-	public void shoot(){
-	abt.start();
-	abt.countReset();
+
+	@Override
+	public void halt() {
+		// TODO Auto-generated method stub
+		
 	}
+		
 }
+

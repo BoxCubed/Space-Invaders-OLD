@@ -1,8 +1,6 @@
 package com.objects;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 
@@ -24,7 +22,7 @@ int counter=0;
 	public void render(Graphics g) {
 	g.drawImage(tex.shield[0],(int)x,(int)y,null);
 		
-		Graphics2D g2d = (Graphics2D)g;
+		//Graphics2D g2d = (Graphics2D)g;
 		
 	}
 	public Rectangle getBounds() {
@@ -41,7 +39,8 @@ int counter=0;
 	}
 	public void hit(){
 		counter++;
-		if(counter==5){
+
+		if(counter==20){
 			Display.handler.removeObject(this);
 		}
 	}
@@ -84,6 +83,28 @@ int counter=0;
 	public objectID getID() {
 		return id;
 	}
+	public boolean isHit(){
+		if (counter==0) return false;
+		else return true;
+		
+	}
+	
+	public void halt() {
+		// TODO Auto-generated method stub
+		Display.handler.runAllCodetoID(Display.handler.new execute(objectID.Crack){
+			
+			@Override
+			void executecode() {
+				// TODO Auto-generated method stub
+				if(getBounds().intersects(tempObject.getBounds())) Display.handler.removeObject(tempObject);
+				if(getY()<=tempObject.getY())Display.handler.removeObject(tempObject);
+			}
+			
+		});
+		
+		
+	}
+	
 
 
 }
