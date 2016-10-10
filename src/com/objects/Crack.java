@@ -2,6 +2,7 @@ package com.objects;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 
@@ -25,9 +26,11 @@ public class Crack extends gameObject{
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
 		g.setColor(Color.BLUE);
-		g.fillOval((int)x,(int) y, 20, 20);
-		//g.setColor(Color.magenta);
-		//g.drawRect((int)x, (int)y, 20, 20);
+		g.fillOval((int)x,(int) y, 10, 20);
+		
+		Graphics2D g2d = (Graphics2D) g;
+		g.setColor(Color.magenta);
+		g2d.drawRect((int)x, (int)y, 10, 20);
 		
 		
 		
@@ -36,7 +39,7 @@ public class Crack extends gameObject{
 	@Override
 	public Rectangle getBounds() {
 		// TODO Auto-generated method stub
-		return new Rectangle((int)x,(int)y,20,20);
+		return new Rectangle((int)x,(int)y,10,20);
 	}
 
 	@Override

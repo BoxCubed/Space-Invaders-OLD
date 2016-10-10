@@ -39,9 +39,15 @@ int counter=0;
 	}
 	public void hit(){
 		counter++;
-
-		if(counter==20){
+		System.out.println(counter);
+		if(counter==10){
 			Display.handler.removeObject(this);
+			Display.handler.runAllCodetoID(Display.handler.new execute(objectID.Crack){
+				@Override
+				void executecode(){
+					Display.handler.removeObject(tempObject);
+				}
+			});
 		}
 	}
 
