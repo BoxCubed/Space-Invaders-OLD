@@ -59,4 +59,5 @@ public abstract class gameObject {
 	}
 
 	public abstract objectID getID();
+	public abstract void halt();
 }

@@ -1,8 +1,6 @@
 package com.objects;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 
@@ -24,7 +22,7 @@ int counter=0;
 	public void render(Graphics g) {
 	g.drawImage(tex.shield[0],(int)x,(int)y,null);
 		
-		Graphics2D g2d = (Graphics2D)g;
+		//Graphics2D g2d = (Graphics2D)g;
 		
 	}
 	public Rectangle getBounds() {
@@ -88,6 +86,11 @@ int counter=0;
 	public boolean isHit(){
 		if (counter==0) return false;
 		else return true;
+		
+	}
+	@Override
+	public void halt() {
+		// TODO Auto-generated method stub
 		
 	}
 

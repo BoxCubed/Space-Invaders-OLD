@@ -33,5 +33,10 @@ public objectID getID() {
 public Rectangle getBounds() {
 	return new Rectangle((int)x,(int)y,50,50);
 }
+@Override
+public void halt() {
+	// TODO Auto-generated method stub
+	
+}
 
 }

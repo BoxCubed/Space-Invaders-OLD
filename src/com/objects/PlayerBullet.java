@@ -126,5 +126,11 @@ public class PlayerBullet extends gameObject {
 		
 		Display.handler.addObject(new Crack(x,y,objectID.Crack));
 	}
+
+	@Override
+	public void halt() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

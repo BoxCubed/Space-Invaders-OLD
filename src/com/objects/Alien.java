@@ -106,5 +106,11 @@ public class Alien extends gameObject{
 		p.moveLeft(this, t, 36600, 7000);
 		p.moveDown(this, t, 43000, 300);
 	}
+
+	@Override
+	public void halt() {
+		// TODO Auto-generated method stub
+		
+	}
 		
 }

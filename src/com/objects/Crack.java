@@ -45,5 +45,11 @@ public class Crack extends gameObject{
 		return id;
 	}
 
+	@Override
+	public void halt() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

@@ -7,9 +7,10 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 public class sound {
-	public void playSound() {
-	    try {
-	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("C:/Desktop/shooting.mp3").getAbsoluteFile());
+	public void playSound(String sound) {
+		  AudioInputStream audioInputStream = null;
+	    try {if(sound.equals("shoot"))
+	        audioInputStream = AudioSystem.getAudioInputStream(new File("C:/Desktop/shooting.mp3").getAbsoluteFile());
 	        Clip popplayer = AudioSystem.getClip();
 	        popplayer.open(audioInputStream);
 	        popplayer.start();

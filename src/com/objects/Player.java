@@ -107,5 +107,11 @@ public class Player extends gameObject{
 		return id;
 	}
 
+	@Override
+	public void halt() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }
