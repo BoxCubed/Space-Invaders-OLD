@@ -88,7 +88,7 @@ int counter=0;
 		else return true;
 		
 	}
-	@Override
+	
 	public void halt() {
 		// TODO Auto-generated method stub
 		Display.handler.runAllCodetoID(Display.handler.new execute(objectID.Crack){
@@ -96,12 +96,15 @@ int counter=0;
 			@Override
 			void executecode() {
 				// TODO Auto-generated method stub
-				if(getBounds().intersects(tempObject.getBounds())) tempObject.halt();
+				if(getBounds().intersects(tempObject.getBounds())) Display.handler.removeObject(tempObject);
+				if(getY()<=tempObject.getY())Display.handler.removeObject(tempObject);
 			}
 			
 		});
 		
+		
 	}
+	
 
 
 }
