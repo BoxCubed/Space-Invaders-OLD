@@ -7,14 +7,15 @@ import java.awt.Rectangle;
 import java.util.LinkedList;
 
 import com.display.Display;
+import com.framework.Texture;
 import com.framework.gameObject;
 import com.framework.objectID;
 
 public class Crack extends gameObject{
+Texture tex = Display.getInstance();
 Handler h=Display.handler;
 	public Crack(float x, float y, objectID id) {
-		super(x-5, y-15, id);
-		// TODO Auto-generated constructor stub
+		super(x, y, id);
 	}
 
 	@Override
@@ -25,16 +26,13 @@ Handler h=Display.handler;
 
 	@Override
 	public void render(Graphics g) {
-		// TODO Auto-generated method stub
-		g.setColor(Color.BLUE);
-		g.fillOval((int)x,(int) y, 10, 20);
+		g.drawImage(tex.crack[0],(int)x,(int)y,null);
 		//g.setColor(Color.magenta);
 		//g.drawRect((int)x, (int)y, 20, 20);
 
 		
 		Graphics2D g2d = (Graphics2D) g;
-		g.setColor(Color.magenta);
-		g2d.drawRect((int)x, (int)y, 10, 20);  //plz updat		
+	
 	}
 
 	@Override
@@ -55,18 +53,16 @@ Handler h=Display.handler;
 		
 	}
 	public void collision(){
-		h.runAllCodetoID(h.new execute(objectID.PlayerBullet){
-			@Override
-			void executecode() {
-				if(tempObject.getBounds().intersects(getBounds())){
-					h.removeObject(tempObject);
-				}
-			}
-			
-			
-		});
 		
 	}
-
+	public void hit(){
+		for(int i=0; i<Display.handler.object.size();i++){
+			gameObject tempObject = Display.handler.object.get(i);
+			if(tempObject.getID()==objectID.Shield){
+				Display.handler.addObject(new Crack((int)tempObject.getX(), (int)tempObject.getY(), objectID.Crack));
+			}
+		}
+		
+	}
 
 }

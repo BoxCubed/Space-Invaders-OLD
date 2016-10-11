@@ -4,6 +4,7 @@ import com.display.Display;
 import com.objects.Alien;
 import com.objects.AlienBullet;
 import com.objects.Block;
+import com.objects.Crack;
 import com.objects.Handler;
 import com.objects.Player;
 import com.objects.Shield;
@@ -30,6 +31,7 @@ public class Tidy {
 		}
 		Display.handler.addObject(new Block(-52, 560, objectID.Block));
 		Display.handler.addObject(new Block(595, 560, objectID.Block));
+
 	}
 
 }

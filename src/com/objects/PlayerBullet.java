@@ -15,7 +15,6 @@ import com.framework.objectID;
 public class PlayerBullet extends gameObject {
 	float width=4;
 	float height=10;
-	boolean crack=true;
 	public PlayerBullet(float x, float y, objectID id) {
 		super(x, y, id);
 	}
@@ -84,24 +83,14 @@ public class PlayerBullet extends gameObject {
 				if(getY()<-5){Display.handler.removeObject(this);}
 			}
 
-			if(tempObject.getID()==objectID.Shield){
-				if(getBounds().intersects(tempObject.getBounds())){crack=true;
-				Shield shield=(Shield) tempObject;
-				shield.hit();
-				if(crack) spawnCrack();
-			}
 		}
 			}
-		}
+		
 			
 	
 
 	public Rectangle getBounds() {
 		return new Rectangle((int)x,(int)y,(int)width,(int)height/3);
-	}
-	public void spawnCrack(){
-		
-		Display.handler.addObject(new Crack(x,y,objectID.Crack));
 	}
 
 	@Override
