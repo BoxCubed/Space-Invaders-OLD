@@ -41,5 +41,6 @@ public class Texture {
 		player[1]=ps.getImage(2, 1,57, 38);
 		shield[0]=ss.getImage(1, 1, 75, 45);
 		crack[0]=cs.getImage(1, 1, 75, 45);
+		crack[1]=cs.getImage(1, 2, 75, 45);
 	}
 }

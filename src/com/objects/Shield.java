@@ -16,11 +16,10 @@ int width = 80;
 int height = 45;
 Texture tex = Display.getInstance();
 int counter=0;
-Crack crack = new Crack(0, 0, objectID.Crack);
+static boolean hit = false;
 	
 	public Shield(float x, float y, objectID id) {
 		super(x, y, id);
-		crack.hit();
 	}
 	public void render(Graphics g) {
 	g.drawImage(tex.shield[0],(int)x,(int)y,null);
@@ -55,7 +54,31 @@ Crack crack = new Crack(0, 0, objectID.Crack);
 	}
 	
 	private void collision(LinkedList<gameObject> object){
-		
+		for(int i=0;i<Display.handler.object.size();i++){
+			gameObject tempObject = Display.handler.object.get(i);
+			if(tempObject.getID()==objectID.AlienBullet){
+				if(tempObject.getBounds().intersects(getBounds())){
+					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,0));
+					Display.handler.removeObject(tempObject);
+				}
+				if(tempObject.getBounds().intersects(getBoundsRight()[0])){
+					System.out.println("hit");
+					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,1));
+					Display.handler.removeObject(tempObject);
+				}
+				if(tempObject.getBounds().intersects(getBoundsRight()[1])){
+					System.out.println("hit");
+					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,1));
+					Display.handler.removeObject(tempObject);
+				}
+				if(tempObject.getBounds().intersects(getBoundsLeft()[0])){
+					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,0));
+				}
+				if(tempObject.getBounds().intersects(getBoundsLeft()[1])){
+					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,0));
+				}
+			}
+		}
 	}
 	public float getX() {
 		return x;

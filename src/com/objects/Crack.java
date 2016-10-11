@@ -14,8 +14,10 @@ import com.framework.objectID;
 public class Crack extends gameObject{
 Texture tex = Display.getInstance();
 Handler h=Display.handler;
-	public Crack(float x, float y, objectID id) {
+private int type;
+	public Crack(float x, float y, objectID id,int type) {
 		super(x, y, id);
+		this.type=type;
 	}
 
 	@Override
@@ -26,7 +28,8 @@ Handler h=Display.handler;
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(tex.crack[0],(int)x,(int)y,null);
+		if(type==1){g.drawImage(tex.crack[1],(int)x,(int)y,null);}
+		if(type==0){;g.drawImage(tex.crack[0],(int)x,(int)y,null);}
 		//g.setColor(Color.magenta);
 		//g.drawRect((int)x, (int)y, 20, 20);
 
@@ -58,9 +61,6 @@ Handler h=Display.handler;
 	public void hit(){
 		for(int i=0; i<Display.handler.object.size();i++){
 			gameObject tempObject = Display.handler.object.get(i);
-			if(tempObject.getID()==objectID.Shield){
-				Display.handler.addObject(new Crack((int)tempObject.getX(), (int)tempObject.getY(), objectID.Crack));
-			}
 		}
 		
 	}

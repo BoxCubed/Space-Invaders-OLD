@@ -64,6 +64,11 @@ public objectID getID() {
 private void collision(LinkedList<gameObject> object){
 	for(int i=0;i<Display.handler.object.size();i++){
 		gameObject tempObject = Display.handler.object.get(i);
+		if(tempObject.getID()==objectID.Player){
+			if(tempObject.getBounds().intersects(getBounds())){
+		//	Display.handler.removeObject(this);
+		}
+		}
 	}
 }
 

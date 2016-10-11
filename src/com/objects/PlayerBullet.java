@@ -74,8 +74,11 @@ public class PlayerBullet extends gameObject {
 			if(tempObject.getID()==objectID.Alien){
 		
 				if(getBounds().intersects(tempObject.getBounds())){
-					Display.handler.removeObject(tempObject);;
-					Display.handler.removeObject(this);
+					if(Shield.hit=true){
+						Display.handler.removeObject(tempObject);;
+						Display.handler.removeObject(this);
+					}
+				
 				}
 			}
 
