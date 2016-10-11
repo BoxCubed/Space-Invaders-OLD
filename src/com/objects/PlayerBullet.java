@@ -83,17 +83,17 @@ public class PlayerBullet extends gameObject {
 			if(tempObject.getID()==objectID.PlayerBullet){
 				if(getY()<-5){Display.handler.removeObject(this);}
 			}
+
 			if(tempObject.getID()==objectID.Shield){
 				if(getBounds().intersects(tempObject.getBounds())){crack=true;
 				Shield shield=(Shield) tempObject;
 				shield.hit();
 				if(crack) spawnCrack();
-				Display.handler.removeObject(this);
-						
-				}
 			}
 		}
 			}
+		}
+			
 	
 
 	public Rectangle getBounds() {

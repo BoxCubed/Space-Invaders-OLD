@@ -6,12 +6,13 @@ import com.objects.Handler;
 import com.objects.PlayerBullet;
 
 public class keyListener extends KeyAdapter{
-	
+	sound Snd;
 	Handler handler;
 	long timer;
 	
 	public keyListener(Handler handler){
 		this.handler=handler;
+		Snd=new sound();
 	}
 	public void keyPressed(KeyEvent e){
 		int key=e.getKeyCode();

@@ -41,13 +41,22 @@ int counter=0;
 		counter++;
 
 		if(counter==5){
+
+		System.out.println(counter);
+		if(counter==5){
+			System.out.println(counter);
+
 			Display.handler.removeObject(this);
+
 			Display.handler.runAllCodetoID(Display.handler.new execute(objectID.Crack){
-				void executecode(){
-					Display.handler.removeObject(tempObject);
-				}
+					@Override
+					void executecode(){
+						Display.handler.removeObject(tempObject);
+					}
+		
 			});
 		}
+	}
 	}
 
 	public float getX() {
