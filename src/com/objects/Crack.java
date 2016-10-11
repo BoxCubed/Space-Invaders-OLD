@@ -58,10 +58,8 @@ Handler h=Display.handler;
 		h.runAllCodetoID(h.new execute(objectID.PlayerBullet){
 			@Override
 			void executecode() {
-				// TODO Auto-generated method stub
 				if(tempObject.getBounds().intersects(getBounds())){
 					h.removeObject(tempObject);
-					
 				}
 			}
 			
