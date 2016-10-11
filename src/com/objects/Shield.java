@@ -40,8 +40,13 @@ int counter=0;
 	public void hit(){
 		counter++;
 
-		if(counter==20){
+		if(counter==5){
 			Display.handler.removeObject(this);
+			Display.handler.runAllCodetoID(Display.handler.new execute(objectID.Crack){
+				void executecode(){
+					Display.handler.removeObject(tempObject);
+				}
+			});
 		}
 	}
 
@@ -90,12 +95,9 @@ int counter=0;
 	}
 	
 	public void halt() {
-		// TODO Auto-generated method stub
 		Display.handler.runAllCodetoID(Display.handler.new execute(objectID.Crack){
-			
 			@Override
 			void executecode() {
-				// TODO Auto-generated method stub
 				if(getBounds().intersects(tempObject.getBounds())) Display.handler.removeObject(tempObject);
 				if(getY()<=tempObject.getY())Display.handler.removeObject(tempObject);
 			}

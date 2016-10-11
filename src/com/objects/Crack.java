@@ -25,7 +25,7 @@ public class Crack extends gameObject{
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
 		g.setColor(Color.BLUE);
-		g.fillOval((int)x,(int) y, 20, 20);
+		g.fillOval((int)x,(int) y, 10, 20);
 		//g.setColor(Color.magenta);
 		//g.drawRect((int)x, (int)y, 20, 20);
 		

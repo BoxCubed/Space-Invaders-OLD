@@ -84,50 +84,16 @@ public class PlayerBullet extends gameObject {
 				if(getY()<-5){Display.handler.removeObject(this);}
 			}
 			if(tempObject.getID()==objectID.Shield){
-				if(getBounds().intersects(tempObject.getBounds())){
+				if(getBounds().intersects(tempObject.getBounds())){crack=true;
 				Shield shield=(Shield) tempObject;
 				shield.hit();
-
-			if(tempObject.getID()==objectID.Shield){			
-				if(getBounds().intersects(tempObject.getBounds())){crack=true;	
-				Shield s=(Shield) tempObject;
-				/*for(int i2=0;i2<Display.handler.object.size();i2++){
-				gameObject temp=Display.handler.object.get(i2);
-				if(temp.getID()==objectID.Crack){
-					if(tempObject.getBounds().intersects(temp.getBounds()))
-						Display.handler.addObject(new Crack((int)x,(int)temp.getY()-2,objectID.Crack));
-					crack=false;
-					
-					
-					
-				}
-				
-				}*/
 				if(crack) spawnCrack();
-				
-				s.hit();
 				Display.handler.removeObject(this);
-				}
-		        }
-				
 						
-						
-				
-				
-				
 				}
 			}
 		}
 			}
-			
-		
-		
-			
-			
-				
-			
-			
-		
 	
 
 	public Rectangle getBounds() {

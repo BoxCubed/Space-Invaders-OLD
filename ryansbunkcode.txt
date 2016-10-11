@@ -1,0 +1,12 @@
+/*for(int i2=0;i2<Display.handler.object.size();i2++){
+				gameObject temp=Display.handler.object.get(i2);
+				if(temp.getID()==objectID.Crack){
+					if(tempObject.getBounds().intersects(temp.getBounds()))
+						Display.handler.addObject(new Crack((int)x,(int)temp.getY()-2,objectID.Crack));
+					crack=false;
+					
+					
+					
+				}
+				
+				}*/
