@@ -60,8 +60,7 @@ private int type;
 			if(tempObject.getID()==objectID.Shield){
 				if(tempObject.getBoundsDown().intersects(getBounds())){
 					if(Shield.destroyed=true){
-						System.out.println("hit");
-						Display.handler.removeObject(this);
+						//Display.handler.removeObject(this);
 					}
 				}
 			}

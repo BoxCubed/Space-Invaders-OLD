@@ -21,7 +21,6 @@ public class keyListener extends KeyAdapter{
 	public keyListener(Handler handler){
 		this.handler=handler;
 	}
-	@SuppressWarnings("static-access")
 	public void keyPressed(KeyEvent e){
 		int key=e.getKeyCode();
 		for(int i=0;i<handler.object.size();i++){
@@ -32,13 +31,7 @@ public class keyListener extends KeyAdapter{
 				if(key==KeyEvent.VK_RIGHT){tempObject.setVelX(5);}
 				if(key==KeyEvent.VK_LEFT){tempObject.setVelX(-5);}
 				
-			}
-			if(key==KeyEvent.VK_SPACE){
-				
-			}else{
-				System.out.println();
-			}
-				
+			}			
 			if(tempObject.getID()==objectID.Alien){
 				if(key==KeyEvent.VK_NUMPAD1){tempObject.setVelX(2);}
 				if(key==KeyEvent.VK_NUMPAD2){tempObject.setVelY(2);}   //controls for alien simulator 2016
@@ -64,13 +57,11 @@ public class keyListener extends KeyAdapter{
 				if(key==KeyEvent.VK_SPACE){					
 					handler.addObject(new PlayerBullet(tempObject.getX()+27,
 							tempObject.getY()-15,objectID.PlayerBullet));
-					//File file_LOCATION = new File ("src/laser.wav");
 					sound.main();
-					//new Thread(new soundObject()).start();
 			}
 			}
 			if(tempObject.getID()==objectID.PlayerBullet){
-				if(key==KeyEvent.VK_SPACE){tempObject.setVelY(-5);}
+				if(key==KeyEvent.VK_SPACE){tempObject.setVelY(-8);}
 			}
 		}
 	}
