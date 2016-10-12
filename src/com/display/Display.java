@@ -8,6 +8,7 @@ import java.awt.image.BufferStrategy;
 import com.framework.Texture;
 import com.framework.Tidy;
 import com.framework.keyListener;
+import com.framework.sound;
 import com.objects.Handler;
 
 public class Display extends Canvas implements Runnable{
@@ -21,15 +22,25 @@ public class Display extends Canvas implements Runnable{
 	private Thread thread;
 	
 	Tidy t;
+	static sound bgsound;
 	
 	static Texture tex;
+	keyListener l;
 	
 	private void initialize(){
 		t = new Tidy(); 
 		tex = new Texture();
 		t.initTidy();
-		this.addKeyListener(new keyListener(handler));
+		startSound();
+		this.addKeyListener(l=new keyListener(handler));
 	}
+	private void startSound() {
+		// TODO Auto-generated method stub
+		
+		bgsound=new sound("background",true);
+		
+	}
+
 	
 	public synchronized void start(){
 		if(running){return;}   //if its running then do nothing
@@ -84,6 +95,7 @@ public class Display extends Canvas implements Runnable{
 	
 	private void tick(){
 		handler.tick();
+		
 	}	
 	public void render(){
 		BufferStrategy bs = this.getBufferStrategy();

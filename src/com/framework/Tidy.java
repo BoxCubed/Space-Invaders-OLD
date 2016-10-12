@@ -12,7 +12,7 @@ import com.objects.Shield;
 public class Tidy {
 	public void initTidy(){
 		Display.handler = new Handler();
-		startSound();
+		
 		
 		Display.handler.addObject(new Player(280,580,objectID.Player,Display.handler));
 		for(int i=-95;i<250;i+=50){
@@ -37,11 +37,5 @@ public class Tidy {
 		ab.setVelY(3);
 	}
 
-	private void startSound() {
-		// TODO Auto-generated method stub
-		sound s;
-		s=new sound("background",true);
-		
-	}
-
+	
 }

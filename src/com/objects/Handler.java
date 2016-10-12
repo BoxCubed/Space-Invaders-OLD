@@ -11,7 +11,7 @@ import com.listeners.CollisionListener;
 import com.objects.Handler.execute;
 
 public class Handler {
-	public static int alienBulletCount;
+	public int alienBulletCount;
 	public LinkedList<gameObject> object = new LinkedList<gameObject>();
 	public LinkedList<CollisionListener> clistener=new LinkedList<CollisionListener>();
 	private gameObject tempObject;

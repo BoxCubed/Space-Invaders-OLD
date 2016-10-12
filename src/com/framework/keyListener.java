@@ -8,6 +8,7 @@ import java.io.InputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+import com.display.Display;
 import com.objects.Handler;
 import com.objects.PlayerBullet;
 
@@ -16,7 +17,7 @@ public class keyListener extends KeyAdapter{
 	//sound soundObject = new sound();
 	Handler handler;
 	long timer;
-
+//public static boolean mute=false;
 	
 	public keyListener(Handler handler){
 		this.handler=handler;
@@ -35,14 +36,17 @@ public class keyListener extends KeyAdapter{
 			}
 			if(key==KeyEvent.VK_SPACE){
 				
-			}else{
-				System.out.println();
+			}
+			if(key==KeyEvent.VK_M){
+		/*if(!mute)
+				mute=true;
+		else mute=false;*/
 			}
 				
 			if(tempObject.getID()==objectID.Alien){
-				if(key==KeyEvent.VK_NUMPAD1){tempObject.setVelX(2);}
-				if(key==KeyEvent.VK_NUMPAD2){tempObject.setVelY(2);}   //controls for alien simulator 2016
-				if(key==KeyEvent.VK_NUMPAD3){tempObject.setVelX(-2);}
+				if(key==KeyEvent.VK_1){tempObject.setVelX(2);}
+				if(key==KeyEvent.VK_2){tempObject.setVelY(2);}   //controls for alien simulator 2016
+				if(key==KeyEvent.VK_3){tempObject.setVelX(-2);}
 		}
 		}
 	}//hFKJHFHS
@@ -56,9 +60,9 @@ public class keyListener extends KeyAdapter{
 				if(key==KeyEvent.VK_RIGHT){tempObject.setVelX(0);}
 			}
 			if(tempObject.getID()==objectID.Alien){
-				if(key==KeyEvent.VK_NUMPAD1){tempObject.setVelX(0);}
-				if(key==KeyEvent.VK_NUMPAD2){tempObject.setVelY(0);}
-				if(key==KeyEvent.VK_NUMPAD3){tempObject.setVelX(0);}
+				if(key==KeyEvent.VK_1){tempObject.setVelX(0);}
+				if(key==KeyEvent.VK_2){tempObject.setVelY(0);}
+				if(key==KeyEvent.VK_3){tempObject.setVelX(0);}
 		}
 			if(tempObject.getID()==objectID.Player){
 				if(key==KeyEvent.VK_SPACE){					
