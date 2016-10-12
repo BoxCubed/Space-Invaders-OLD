@@ -34,32 +34,18 @@ class MyClass extends Thread{
 			audio_player.open(AudioSystem.getAudioInputStream(file_LOCATION));
 			audio_player.start();
 			
-			Thread.sleep(audio_player.getMicrosecondLength()/100); //REMOVING a 0 from that just fixed everything ALL G 
+			Thread.sleep(audio_player.getMicrosecondLength()/1000); //REMOVING a 0 from that just fixed everything ALL G 
 			audio_player.stop();
 			audio_player.close();
-			Thread.sleep(MAX_PRIORITY); //I HOPE THIS WORKS
+			//Thread.sleep(10); //I HOPE THIS WORKS
 			//The is iufhjgf gsjf sajfgshjvf 
-		}catch(NullPointerException e){
-			System.out.println("file no found");
-			e.printStackTrace(); //INCASE OF FUCK UP IN THE SOUND FOR SUM REASON
-			
-		} catch (InterruptedException e) {
+		
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println("Thread couldn't sleep");
+			System.out.println("Sound Error: "+e.getMessage());
 			e.printStackTrace();
-			
-		} catch (LineUnavailableException e) {
-			// TODO Auto-generated catch block
-			System.out.println("sound Error");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("Internal IO Sound Error");
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnsupportedAudioFileException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Unknown Format");
-			e.printStackTrace();
+		}finally{
+			System.out.println("finished music");
 		}
 		
 	}while(loop);
