@@ -67,7 +67,7 @@ public class sound{
  * Whether to loop the sound for the duration of the game or not. Can be stopped by calling halt
  */
 	
-public sound(String soundFile,boolean loop){
+public sound(String soundFile,boolean loop){//program this into a handler pls! so only one instance and muting is possible
 	myclass = new MyClass(soundFile,loop);
 	//This code initializes the thread 
 	myclass.start();
