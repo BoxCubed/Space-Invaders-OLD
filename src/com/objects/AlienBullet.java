@@ -14,7 +14,7 @@ public class AlienBullet extends gameObject{
 int width = 3;
 int height = 6;
 	
-	public AlienBullet(float x, float y, objectID id) {
+	public AlienBullet(int x, int y, objectID id) {
 		super(x, y, id);
 	}
 	public void render(Graphics g) {
@@ -33,27 +33,27 @@ public void tick(LinkedList<gameObject> object) {
 	collision(object);
 }
 
-public float getX() {
+public int getX() {
 	return x;
 }
 
-public float getY() {
+public int getY() {
 	return y;
 }
 
-public float getVelX() {
+public int getVelX() {
 	return velX;
 }
 
-public float getVelY() {
+public int getVelY() {
 	return velY;
 }
 
-public void setVelX(float velX) {
+public void setVelX(int velX) {
 	this.velX=velX;
 }
 
-public void setVelY(float velY) {
+public void setVelY(int velY) {
 	this.velY=velY;
 }
 

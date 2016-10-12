@@ -13,7 +13,7 @@ import com.framework.objectID;
 public class Block extends gameObject{
 	Texture tex = Display.getInstance();
 	
-	public Block(float x, float y, objectID id) {
+	public Block(int x, int y, objectID id) {
 		super(x, y, id);
 	}
 	public void render(Graphics g) {

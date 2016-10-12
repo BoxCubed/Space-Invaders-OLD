@@ -13,9 +13,9 @@ import com.framework.objectID;
 
 
 public class PlayerBullet extends gameObject {
-	float width=4;
-	float height=10;
-	public PlayerBullet(float x, float y, objectID id) {
+	int width=4;
+	int height=10;
+	public PlayerBullet(int x, int y, objectID id) {
 		super(x, y, id);
 	}
 
@@ -36,27 +36,27 @@ public class PlayerBullet extends gameObject {
 		collision(object);
 	}
 
-	public float getX() {
+	public int getX() {
 		return x;
 	}
 
-	public float getY() {
+	public int getY() {
 		return y;
 	}
 
-	public float getVelX() {
+	public int getVelX() {
 		return velX;
 	}
 
-	public float getVelY() {
+	public int getVelY() {
 		return velY;
 	}
 
-	public void setVelX(float velX) {
+	public void setVelX(int velX) {
 		this.velX=velX;
 	}
 
-	public void setVelY(float velY) {
+	public void setVelY(int velY) {
 		this.velY=velY;
 	}
 
@@ -74,10 +74,8 @@ public class PlayerBullet extends gameObject {
 			if(tempObject.getID()==objectID.Alien){
 		
 				if(getBounds().intersects(tempObject.getBounds())){
-					if(Shield.hit=true){
 						Display.handler.removeObject(tempObject);;
 						Display.handler.removeObject(this);
-					}
 				
 				}
 			}

@@ -18,7 +18,7 @@ Texture tex = Display.getInstance();
 int counter=0;
 static boolean hit = false;
 	
-	public Shield(float x, float y, objectID id) {
+	public Shield(int x, int y, objectID id) {
 		super(x, y, id);
 	}
 	public void render(Graphics g) {
@@ -56,62 +56,69 @@ static boolean hit = false;
 	private void collision(LinkedList<gameObject> object){
 		for(int i=0;i<Display.handler.object.size();i++){
 			gameObject tempObject = Display.handler.object.get(i);
-			if(tempObject.getID()==objectID.AlienBullet){
+			if(tempObject.getID()==objectID.AlienBullet||tempObject.getID()==objectID.PlayerBullet){
 				if(tempObject.getBounds().intersects(getBounds())){
 					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,0));
+					hit();
 					Display.handler.removeObject(tempObject);
 				}
 				if(tempObject.getBounds().intersects(getBoundsRight()[0])){
+					hit();
 					System.out.println("hit");
 					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,1));
 					Display.handler.removeObject(tempObject);
 				}
 				if(tempObject.getBounds().intersects(getBoundsRight()[1])){
+					hit();
 					System.out.println("hit");
 					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,1));
 					Display.handler.removeObject(tempObject);
 				}
 				if(tempObject.getBounds().intersects(getBoundsLeft()[0])){
+					hit();
 					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,0));
+					Display.handler.removeObject(tempObject);
 				}
 				if(tempObject.getBounds().intersects(getBoundsLeft()[1])){
-					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,0));
+					hit();
+				Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,0));
+					Display.handler.removeObject(tempObject);
 				}
 			}
 		}
 	}
-	public float getX() {
+	public int getX() {
 		return x;
 	}
 
-	public float getY() {
+	public int getY() {
 		return y;
 	}
 
-	public void setX(float x) {
+	public void setX(int x) {
 		this.x=x;
 		
 	}
 
-	public void setY(float y) {
+	public void setY(int y) {
 		this.y=y;
 		
 	}
 
-	public float getVelX() {
+	public int getVelX() {
 		return velX;
 	}
 
-	public float getVelY() {
+	public int getVelY() {
 		return velY;
 	}
 
-	public void setVelX(float velX) {
+	public void setVelX(int velX) {
 		this.velX=velX;
 		
 	}
 
-	public void setVelY(float velY) {
+	public void setVelY(int velY) {
 		this.velY=velY;
 	}
 
@@ -130,6 +137,10 @@ static boolean hit = false;
 		});
 		
 		
+	}
+	public void hit(){
+		if(counter==5){Display.handler.removeObject(this);}
+		counter++;
 	}
 	
 	

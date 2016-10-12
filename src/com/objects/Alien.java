@@ -32,7 +32,7 @@ public class Alien extends gameObject{
 	
 	Texture tex = Display.getInstance();
 	
-	public Alien(float x, float y, objectID id,int type) {
+	public Alien(int x, int y, objectID id,int type) {
 		super(x, y, id);
 		t=new Timer();
 		p = new PathAlien();
@@ -59,35 +59,35 @@ public class Alien extends gameObject{
 	
 	}
 
-	public float getX() {
+	public int getX() {
 		return x;
 	}
 
-	public float getY() {
+	public int getY() {
 		return y;
 	}
 
-	public void setX(float x) {
+	public void setX(int x) {
 		this.x=x;
 	}
 
-	public void setY(float y) {
+	public void setY(int y) {
 		this.y=y;
 	}
 
-	public float getVelX() {
+	public int getVelX() {
 		return velX;
 	}
 
-	public float getVelY() {
+	public int getVelY() {
 		return velY;
 	}
 
-	public void setVelX(float velX) {
+	public void setVelX(int velX) {
 		this.velX=velX;
 	}
 
-	public void setVelY(float velY) {
+	public void setVelY(int velY) {
 		this.velY=velY;
 	}
 

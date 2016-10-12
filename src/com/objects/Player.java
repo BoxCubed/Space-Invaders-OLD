@@ -13,13 +13,13 @@ import com.framework.gameObject;
 import com.framework.objectID;
 
 public class Player extends gameObject{
-	float width=50;
-	float height=20;
+	int width=50;
+	int height=20;
 	
 	private Handler handler;
 	Texture tex = Display.getInstance();
 	
-	public Player(float x,float y, objectID id, Handler handler) {
+	public Player(int x,int y, objectID id, Handler handler) {
 		super(x, y, id);
 		this.handler=handler;
 		System.out.println("Created New Player at X: "+x+" Y: "+y+" id="+id);
@@ -69,38 +69,38 @@ public class Player extends gameObject{
 		}
 	}
 
-	public float getX() {
+	public int getX() {
 		return x;
 	}
 
-	public float getY() {
+	public int getY() {
 		return y;
 	}
 
-	public void setX(float x) {
+	public void setX(int x) {
 		this.x=x;
 		
 	}
 
-	public void setY(float y) {
+	public void setY(int y) {
 		this.y=y;
 		
 	}
 
-	public float getVelX() {
+	public int getVelX() {
 		return velX;
 	}
 
-	public float getVelY() {
+	public int getVelY() {
 		return velY;
 	}
 
-	public void setVelX(float velX) {
+	public void setVelX(int velX) {
 		this.velX=velX;
 		
 	}
 
-	public void setVelY(float velY) {
+	public void setVelY(int velY) {
 		this.velY=velY;
 	}
 

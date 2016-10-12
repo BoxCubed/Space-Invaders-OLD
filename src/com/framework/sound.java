@@ -8,11 +8,9 @@ class MyClass extends Thread{
 		File file_LOCATION = new File ("src/laser.wav");
 		play_sound(file_LOCATION);
 	}*/
-	@SuppressWarnings("deprecation")
 	public void run(){
 		
 		File file_LOCATION = new File ("sounds/laser.wav");//LOCATION OF THE FILE IS CRUCIAL BECAUSE... DO u want sound or not??????
-		System.out.println("the sound is running on thread: "+ Thread.currentThread().getName()); //This just makes sure that the thread is running
 		try{
 			Clip audio_player = AudioSystem.getClip(); 				//THIS S**T does the audio. DONT MESS WITH IT OR JAVA WILL F UP
 			audio_player.open(AudioSystem.getAudioInputStream(file_LOCATION));

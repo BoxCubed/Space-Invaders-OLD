@@ -14,13 +14,13 @@ import com.objects.Shield;
 
 public abstract class gameObject {
 	
-	protected float x,y;
+	protected int x,y;
 	protected objectID id;                         //Note: protected means something that can only be accessed by its package buddies (classes)
-	protected float velX=0, velY=0;
-	protected float width;
-	protected float height;
+	protected int velX=0, velY=0;
+	protected int width;
+	protected int height;
 	
-	public gameObject(float x, float y, objectID id){
+	public gameObject(int x, int y, objectID id){
 		this.x = x;
 		this.y = y;
 		this.id = id;
@@ -35,28 +35,28 @@ public abstract class gameObject {
 	public abstract void render(Graphics g);                    //renders object using graphics 'g'?
 	public abstract Rectangle getBounds();
 	
-	public float getX(){
+	public int getX(){
 		return x;
 	}
-	public float getY(){
+	public int getY(){
 		return y;
 	}
-	public void setX(float x){
+	public void setX(int x){
 		this.x=x;
 	}               
-	public void setY(float y){
+	public void setY(int y){
 		this.y=y;
 	}                       
-	public float getVelX(){
+	public int getVelX(){
 		return velX;
 	}
-	public float getVelY(){
+	public int getVelY(){
 		return velY;
 	}
-	public void setVelX(float velX){
+	public void setVelX(int velX){
 		this.velX=velX;
 	}
-	public void setVelY(float velY){
+	public void setVelY(int velY){
 		this.velY=velY;
 	}
 
