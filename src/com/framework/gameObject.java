@@ -19,16 +19,12 @@ public abstract class gameObject {
 	protected int velX=0, velY=0;
 	protected int width;
 	protected int height;
+	protected Rectangle getBoundsDown;
 	
 	public gameObject(int x, int y, objectID id){
 		this.x = x;
 		this.y = y;
 		this.id = id;
-		if(this instanceof Alien) id=objectID.Alien;
-		if(this instanceof PlayerBullet)id=objectID.PlayerBullet;
-		if(this instanceof Shield)id=objectID.Shield;
-		if(this instanceof Player)id=objectID.Player;
-		if(this instanceof Crack)id=objectID.Crack;
 	}
 	
 	public abstract void tick(LinkedList<gameObject> object);     //A Linked List is a list that does not have a fixed amount of data like an Array
@@ -59,6 +55,8 @@ public abstract class gameObject {
 	public void setVelY(int velY){
 		this.velY=velY;
 	}
+	public Rectangle getBoundsDown(){
+		return getBoundsDown;}
 
 	public abstract objectID getID();
 	public abstract void halt();

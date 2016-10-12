@@ -59,17 +59,6 @@ public class Handler {
 	}
 	public void runAllCodetoID(execute ex){
 		
-/*		use example:
-			Display.handler.runAllCodetoID(Display.handler.new execute(objectID.Alien){
-				@Override
-				void executecode() {
-					// TODO Auto-generated method stub
-					System.out.println(tempObject.getID());
-				}
-				
-				
-			});*/
-		
 	}
 	
 	class execute{

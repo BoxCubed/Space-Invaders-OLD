@@ -28,13 +28,10 @@ private int type;
 
 	@Override
 	public void render(Graphics g) {
-		g.setColor(Color.blue);
-		g.fillOval((int)x, (int)y, 10,20);
+		g.setColor(Color.BLACK);
+		g.fillOval((int)x, (int)y, 20,20);
 		//if(type==1){g.drawImage(tex.crack[1],(int)x,(int)y,null);}
 		//if(type==0){;g.drawImage(tex.crack[0],(int)x,(int)y,null);}
-		//g.setColor(Color.magenta);
-		//g.drawRect((int)x, (int)y, 20, 20);
-
 		
 		Graphics2D g2d = (Graphics2D) g;
 	
@@ -43,7 +40,7 @@ private int type;
 	@Override
 	public Rectangle getBounds() {
 		// TODO Auto-generated method stub
-		return new Rectangle((int)x,(int)y,10,20);
+		return new Rectangle((int)x,(int)y,20,20);
 	}
 
 	@Override
@@ -58,13 +55,18 @@ private int type;
 		
 	}
 	public void collision(){
-		
-	}
-	public void hit(){
-		for(int i=0; i<Display.handler.object.size();i++){
-			gameObject tempObject = Display.handler.object.get(i);
+		for(int i=0;i<Display.handler.object.size();i++){
+			gameObject tempObject=Display.handler.object.get(i);
+			if(tempObject.getID()==objectID.Shield){
+				if(tempObject.getBoundsDown().intersects(getBounds())){
+					if(Shield.destroyed=true){
+						System.out.println("hit");
+						Display.handler.removeObject(this);
+					}
+				}
+			}
 		}
-		
+	
 	}
 
 }

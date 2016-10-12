@@ -16,7 +16,7 @@ int width = 80;
 int height = 45;
 Texture tex = Display.getInstance();
 int counter=0;
-static boolean hit = false;
+static boolean destroyed=false;
 	
 	public Shield(int x, int y, objectID id) {
 		super(x, y, id);
@@ -31,6 +31,7 @@ static boolean hit = false;
 	g2d.draw(getBoundsRight()[1]);
 	g2d.draw(getBoundsLeft()[0]);
 	g2d.draw(getBoundsLeft()[1]);
+	g2d.draw(getBoundsDown());
 	}
 	public Rectangle getBounds() {
 		return new Rectangle((int)x+21,(int)y+6,(int)33,(int)3);
@@ -48,6 +49,9 @@ static boolean hit = false;
 		Rectangle[] leftside = {r,r2};
 		return leftside;
 	}
+	public Rectangle getBoundsDown(){
+		return new Rectangle(x,y+20,width-5,height-25);}
+	
 	public void tick(LinkedList<gameObject> object) {
 		x+=velX;
 		collision(object);
@@ -56,33 +60,40 @@ static boolean hit = false;
 	private void collision(LinkedList<gameObject> object){
 		for(int i=0;i<Display.handler.object.size();i++){
 			gameObject tempObject = Display.handler.object.get(i);
-			if(tempObject.getID()==objectID.AlienBullet||tempObject.getID()==objectID.PlayerBullet){
+			if(tempObject.getID()==objectID.AlienBullet){
 				if(tempObject.getBounds().intersects(getBounds())){
-					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,0));
 					hit();
 					Display.handler.removeObject(tempObject);
+					Display.handler.object.add(new Crack(tempObject.getX(), tempObject.getY(), objectID.Crack,0));
 				}
 				if(tempObject.getBounds().intersects(getBoundsRight()[0])){
 					hit();
-					System.out.println("hit");
-					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,1));
 					Display.handler.removeObject(tempObject);
+					Display.handler.object.add(new Crack(x, (int)y, objectID.Crack,1));
+					
 				}
 				if(tempObject.getBounds().intersects(getBoundsRight()[1])){
 					hit();
-					System.out.println("hit");
-					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,1));
 					Display.handler.removeObject(tempObject);
+					Display.handler.object.add(new Crack(tempObject.getX()-5, tempObject.getY()+5, objectID.Crack,1));
+					
 				}
 				if(tempObject.getBounds().intersects(getBoundsLeft()[0])){
 					hit();
-					Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,0));
 					Display.handler.removeObject(tempObject);
+					Display.handler.object.add(new Crack(tempObject.getX()+5, tempObject.getY()+5, objectID.Crack,0));
 				}
 				if(tempObject.getBounds().intersects(getBoundsLeft()[1])){
 					hit();
-				Display.handler.object.add(new Crack((int)x, (int)y, objectID.Crack,0));
 					Display.handler.removeObject(tempObject);
+				Display.handler.object.add(new Crack(tempObject.getX(), tempObject.getY(), objectID.Crack,0));
+				}
+			}
+			if(tempObject.getID()==objectID.PlayerBullet){
+				if(tempObject.getBounds().intersects(getBoundsDown())){
+					hit();
+					Display.handler.removeObject(tempObject);
+					Display.handler.addObject(new Crack(tempObject.getX(),tempObject.getY(),objectID.Crack,0));
 				}
 			}
 		}
@@ -127,20 +138,17 @@ static boolean hit = false;
 	}
 	
 	public void halt() {
-		Display.handler.runAllCodetoID(Display.handler.new execute(objectID.Crack){
-			@Override
-			void executecode() {
-				if(getBounds().intersects(tempObject.getBounds())) Display.handler.removeObject(tempObject);
-				if(getY()<=tempObject.getY())Display.handler.removeObject(tempObject);
-			}
-			
-		});
-		
 		
 	}
 	public void hit(){
-		if(counter==5){Display.handler.removeObject(this);}
 		counter++;
+		System.out.println(counter);
+		if(counter==5){
+			Shield.destroyed=true;
+			System.out.println("remove");
+			Display.handler.removeObject(this);
+			counter=0;
+		}
 	}
 	
 	
