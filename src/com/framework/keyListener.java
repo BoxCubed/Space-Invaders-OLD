@@ -2,18 +2,26 @@ package com.framework;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.InputStream;
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 import com.objects.Handler;
 import com.objects.PlayerBullet;
 
 public class keyListener extends KeyAdapter{
-	sound Snd;
+	private static final InputStream Sound = null;
+	//sound soundObject = new sound();
 	Handler handler;
 	long timer;
+	sound soundObject = new sound();
 	
 	public keyListener(Handler handler){
 		this.handler=handler;
-		Snd=new sound();
 	}
+	@SuppressWarnings("static-access")
 	public void keyPressed(KeyEvent e){
 		int key=e.getKeyCode();
 		for(int i=0;i<handler.object.size();i++){
@@ -25,14 +33,19 @@ public class keyListener extends KeyAdapter{
 				if(key==KeyEvent.VK_LEFT){tempObject.setVelX(-5);}
 				
 			}
-			
+			if(key==KeyEvent.VK_SPACE){
+				
+			}else{
+				System.out.println();
+			}
+				
 			if(tempObject.getID()==objectID.Alien){
 				if(key==KeyEvent.VK_NUMPAD1){tempObject.setVelX(2);}
 				if(key==KeyEvent.VK_NUMPAD2){tempObject.setVelY(2);}   //controls for alien simulator 2016
 				if(key==KeyEvent.VK_NUMPAD3){tempObject.setVelX(-2);}
 		}
 		}
-	}
+	}//hFKJHFHS
 	public void keyReleased(KeyEvent e){
 		int key=e.getKeyCode();
 		for(int i=0;i<handler.object.size();i++){
@@ -48,9 +61,12 @@ public class keyListener extends KeyAdapter{
 				if(key==KeyEvent.VK_NUMPAD3){tempObject.setVelX(0);}
 		}
 			if(tempObject.getID()==objectID.Player){
-				if(key==KeyEvent.VK_SPACE){
+				if(key==KeyEvent.VK_SPACE){					
 					handler.addObject(new PlayerBullet(tempObject.getX()+27,
 							tempObject.getY()-15,objectID.PlayerBullet));
+					//File file_LOCATION = new File ("src/laser.wav");
+					sound.main();
+					//new Thread(new soundObject()).start();
 			}
 			}
 			if(tempObject.getID()==objectID.PlayerBullet){
@@ -58,4 +74,5 @@ public class keyListener extends KeyAdapter{
 			}
 		}
 	}
+	
 }
