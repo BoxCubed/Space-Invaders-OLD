@@ -90,7 +90,6 @@ public class Display extends Canvas implements Runnable{
 			if(System.currentTimeMillis() - timer > 1000){
 				timer += 1000;
 				System.out.println("FPS: " + updates);
-				System.out.println(checkWin.alienNumber);
 				frames = 0;
 				updates = 0;
 			}

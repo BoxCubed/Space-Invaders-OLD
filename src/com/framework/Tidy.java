@@ -32,9 +32,6 @@ public class Tidy {
 		}
 		Display.handler.addObject(new Block(-52, 560, objectID.Block));
 		Display.handler.addObject(new Block(595, 560, objectID.Block));
-		AlienBullet ab = new AlienBullet(255, 150, objectID.AlienBullet);
-		Display.handler.addObject(ab);
-		ab.setVelY(3);
 	}
 
 	
