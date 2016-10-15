@@ -42,7 +42,7 @@ public void stop(){
 }
 
 public void countReset(){
-	Handler.alienBulletCount=0;
+	//Handler.alienBulletCount=0;
 }
 
 }

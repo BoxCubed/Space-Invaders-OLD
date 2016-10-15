@@ -13,6 +13,7 @@ public class Tidy {
 	public void initTidy(){
 		Display.handler = new Handler();
 		
+		
 		Display.handler.addObject(new Player(280,580,objectID.Player,Display.handler));
 		for(int i=-95;i<250;i+=50){
 			Display.handler.addObject(new Alien(i,100,objectID.Alien,0));
@@ -36,4 +37,5 @@ public class Tidy {
 		ab.setVelY(3);
 	}
 
+	
 }

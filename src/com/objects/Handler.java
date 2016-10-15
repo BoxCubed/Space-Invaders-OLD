@@ -9,7 +9,7 @@ import com.framework.gameObject;
 import com.framework.objectID;
 
 public class Handler {
-	public static int alienBulletCount;
+	public int alienBulletCount;
 	public LinkedList<gameObject> object = new LinkedList<gameObject>();
 	private gameObject tempObject;
 	
