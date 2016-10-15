@@ -9,14 +9,17 @@ import java.util.LinkedList;
 import com.display.Display;
 import com.framework.gameObject;
 import com.framework.objectID;
+import com.framework.checkWin;
 
 
 
 public class PlayerBullet extends gameObject {
 	int width=4;
 	int height=10;
+	checkWin c;
 	public PlayerBullet(int x, int y, objectID id) {
 		super(x, y, id);
+		c = new checkWin();
 	}
 
 	public void render(Graphics g) {
@@ -76,7 +79,7 @@ public class PlayerBullet extends gameObject {
 				if(getBounds().intersects(tempObject.getBounds())){
 						Display.handler.removeObject(tempObject);;
 						Display.handler.removeObject(this);
-				
+						checkWin.alienNumber--;
 				}
 			}
 

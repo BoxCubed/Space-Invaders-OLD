@@ -27,7 +27,7 @@ class MyClass extends Thread{
 		file_LOCATION = new File ("sounds/laser.wav");//LOCATION OF THE FILE IS CRUCIAL BECAUSE... DO u want sound or not??????
 		if(s.equals("background"))
 			file_LOCATION=new File("sounds/backgroundMusic.wav");
-		System.out.println("new sound thread started: Playing File: "+file_LOCATION.getName());
+		//System.out.println("new sound thread started: Playing File: "+file_LOCATION.getName());
 		do{
 		try{
 			Clip audio_player = AudioSystem.getClip(); 				//THIS S**T does the audio. DONT MESS WITH IT OR JAVA WILL F UP
@@ -45,7 +45,7 @@ class MyClass extends Thread{
 			System.out.println("Sound Error: "+e.getMessage());
 			e.printStackTrace();
 		}finally{
-			System.out.println("finished music");
+			//System.out.println("finished music");
 		}
 		
 	}while(loop);

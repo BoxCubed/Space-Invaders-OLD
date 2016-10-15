@@ -15,6 +15,7 @@ import java.util.TimerTask;
 
 import com.display.Display;
 import com.framework.Texture;
+import com.framework.checkWin;
 import com.framework.gameObject;
 import com.framework.objectID;
 
@@ -23,7 +24,6 @@ import com.framework.objectID;
 public class Alien extends gameObject{
 	int width=20;
 	int height=20;
-	
 	private int type;
 	
 	Timer t;
@@ -38,6 +38,7 @@ public class Alien extends gameObject{
 		p = new PathAlien();
 		this.type=type;
 		path();
+		checkWin.alienNumber++;
 	}
 	
 	public void render(Graphics g) {
@@ -55,8 +56,6 @@ public class Alien extends gameObject{
 	public void tick(LinkedList<gameObject> object) {
 		x+=velX;
 		y+=velY;
-		
-	
 	}
 
 	public int getX() {

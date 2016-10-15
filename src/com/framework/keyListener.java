@@ -65,8 +65,8 @@ public class keyListener extends KeyAdapter{
 					handler.addObject(new PlayerBullet(tempObject.getX()+27,
 							tempObject.getY()-15,objectID.PlayerBullet));
 					//File file_LOCATION = new File ("src/laser.wav");
-					sound s;
-					s=new sound("shoot",false);
+					//sound s;
+					//s=new sound("shoot",false);
 					
 					//new Thread(new soundObject()).start();
 			}
