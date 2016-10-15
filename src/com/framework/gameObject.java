@@ -19,6 +19,7 @@ public abstract class gameObject {
 	protected int velX=0, velY=0;
 	protected int width;
 	protected int height;
+	protected int type;
 	protected Rectangle getBoundsDown;
 	
 	public gameObject(int x, int y, objectID id){
@@ -54,6 +55,12 @@ public abstract class gameObject {
 	}
 	public void setVelY(int velY){
 		this.velY=velY;
+	}
+	public void setType(int type){
+		this.type=type;
+	}
+	public int getType(){
+		return type;
 	}
 	public Rectangle getBoundsDown(){
 		return getBoundsDown;}

@@ -16,7 +16,7 @@ int width = 80;
 int height = 45;
 Texture tex = Display.getInstance();
 int counter=0;
-static boolean destroyed=false;
+private int type;
 	
 	public Shield(int x, int y, objectID id) {
 		super(x, y, id);
@@ -96,6 +96,7 @@ static boolean destroyed=false;
 					Display.handler.addObject(new Crack(tempObject.getX(),tempObject.getY(),objectID.Crack,0));
 				}
 			}
+		
 		}
 	}
 	public int getX() {
@@ -136,21 +137,23 @@ static boolean destroyed=false;
 	public objectID getID() {
 		return id;
 	}
+	public void setType(int type){
+		this.type=type;
+	}
+	public int getType(){
+		return type;
+	}
 	
 	public void halt() {
 		
 	}
 	public void hit(){
 		counter++;
-		System.out.println(counter);
 		if(counter==5){
-			Shield.destroyed=true;
-			System.out.println("remove");
+			setType(1);
+			System.out.println("remove shield");
 			Display.handler.removeObject(this);
-			counter=0;
 		}
 	}
-	
-	
 
 }

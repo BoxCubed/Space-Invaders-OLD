@@ -7,6 +7,7 @@ import java.awt.image.BufferStrategy;
 
 import com.framework.Texture;
 import com.framework.Tidy;
+import com.framework.checkWin;
 import com.framework.keyListener;
 import com.objects.Handler;
 
@@ -21,10 +22,12 @@ public class Display extends Canvas implements Runnable{
 	private Thread thread;
 	
 	Tidy t;
+	checkWin cw;
 	
 	static Texture tex;
 	
 	private void initialize(){
+		cw = new checkWin();
 		t = new Tidy(); 
 		tex = new Texture();
 		t.initTidy();
@@ -97,6 +100,7 @@ public class Display extends Canvas implements Runnable{
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
+		cw.check(g);
 		handler.render(g);
 		
 		g.dispose();    //disposes of the frames that it buffered
