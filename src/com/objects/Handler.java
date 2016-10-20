@@ -12,12 +12,15 @@ public class Handler {
 	public int alienBulletCount;
 	public LinkedList<gameObject> object = new LinkedList<gameObject>();
 	private gameObject tempObject;
+	public static int tickcount=0;
 	
 	public void tick(){
 		for(int i=0; i<object.size();i++){
 			tempObject=(object.get(i));
 			tempObject.tick(object);
 		}
+		tickcount++;
+		
 		
 	}
 	public synchronized void render(Graphics g){

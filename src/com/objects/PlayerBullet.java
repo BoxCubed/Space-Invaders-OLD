@@ -16,10 +16,15 @@ import com.framework.checkWin;
 public class PlayerBullet extends gameObject {
 	int width=4;
 	int height=10;
+	int wavel=50,velocity=5,startposy,startposx,tickcount=0;
+	float wiggle =0.3f;
 	checkWin c;
 	public PlayerBullet(int x, int y, objectID id) {
 		super(x, y, id);
+		startposy=y;
+		startposx=x;
 		c = new checkWin();
+		
 	}
 
 	public void render(Graphics g) {
@@ -33,8 +38,12 @@ public class PlayerBullet extends gameObject {
 	}
 
 	public void tick(LinkedList<gameObject> object) {
-		x+=velX;
-		y+=velY;
+/*		x+=velX;
+		y+=velY;*/
+		tickcount++;
+		x=(int) (wavel*Math.sin(wiggle*tickcount)+startposx);
+		y+=velY;  
+		
 		
 		collision(object);
 	}
