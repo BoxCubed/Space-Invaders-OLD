@@ -2,19 +2,11 @@ package com.framework;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.InputStream;
-
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-
-import com.display.Display;
 import com.objects.Handler;
 import com.objects.PlayerBullet;
 
 public class keyListener extends KeyAdapter{
-	private static final InputStream Sound = null;
-	//sound soundObject = new sound();
+	sound soundObject = new sound();
 	Handler handler;
 	long timer;
 //public static boolean mute=false;
@@ -36,7 +28,8 @@ public class keyListener extends KeyAdapter{
 			}			
 			}
 			if(key==KeyEvent.VK_SPACE){
-				
+				//new Thread(soundObject().start());
+				soundObject.play_sound();
 			}
 			if(key==KeyEvent.VK_M){
 		/*if(!mute)
