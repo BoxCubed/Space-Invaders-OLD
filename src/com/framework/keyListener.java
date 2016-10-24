@@ -29,7 +29,7 @@ public class keyListener extends KeyAdapter{
 			}
 			if(key==KeyEvent.VK_SPACE){
 				//new Thread(soundObject().start());
-				soundObject.play_sound();
+				
 			}
 			if(key==KeyEvent.VK_M){
 		/*if(!mute)
@@ -65,7 +65,7 @@ public class keyListener extends KeyAdapter{
 			}
 			}
 			if(tempObject.getID()==objectID.PlayerBullet){
-				if(key==KeyEvent.VK_SPACE){tempObject.setVelY(-8);}
+				if(key==KeyEvent.VK_SPACE){tempObject.setVelY(-8);soundObject.play_sound();}
 			}
 		}
 	}
