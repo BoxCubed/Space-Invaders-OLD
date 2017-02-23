@@ -1,2 +1,2 @@
-# Space Invaders Java Edition
-next level java shit here
+# Space Invaders Java Edition 
+Very old project that we made when we became a team. No libraries used. 
